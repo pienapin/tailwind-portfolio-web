@@ -6,6 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>M. Imam Alvien Cenna Alnaza</title>
 	<link href="dist/output.css" rel="stylesheet">
+	<style>
+		#myModal:target {
+			visibility: visible;
+			opacity: 1;
+			pointer-events: auto;
+		}
+	</style>
 	<!-- <link href="src/main.css" rel="stylesheet"> -->
 </head>
 
@@ -38,7 +45,8 @@
 								<a href="#portfolio" class="text-base text-dark py-2 mx-5 flex group-hover:text-slate-300">Portfolio</a>
 							</li>
 							<li class="group">
-								<a href="https://notes.pien.my.id" class="text-base text-dark py-2 mx-5 flex group-hover:text-slate-300">Blog</a>
+								<a href="https://notes.pien.my.id"
+									class="text-base text-dark py-2 mx-5 flex group-hover:text-slate-300">Blog</a>
 							</li>
 						</ul>
 					</nav>
@@ -267,7 +275,6 @@
 							</ul>
 						</div>
 					</li>
-
 				</ul>
 			</div>
 		</div>
@@ -281,35 +288,190 @@
 					<p class="font-medium text-md text-slate-700">some projects i built/involved in</p>
 				</div>
 			</div>
+
 			<div class="w-full px-4 flex flex-wrap">
+
 				<a class="mb-6 p-4 md:w-1/2" href="https://github.com/pienapin/KukerTUI">
 					<div>
-						<div class="rounded-md shadow-md overflow-hidden">
+						<div class="rounded-md shadow-md overflow-hidden aspect-[16/9] flex items-end justify-center">
 							<img src="https://raw.githubusercontent.com/pienapin/KukerTUI/main/images/screenshot.gif" alt="KukerTUI"
-								width="w-full" />
+								class="max-h-full max-w-full object-contain" />
 						</div>
-						<div class="flex justify-between mb-1 mt-5">
+						<div class="flex justify-between mb-1 mt-2">
 							<h3 class="font-semibold text-xl text-dark">KukerTUI</h3>
-							<h3 class="font-semibold text-sm text-dark">Built with Python and Selenium</h3>
+							<h3 class="font-semibold text-sm text-dark text-end">Built with Python and Selenium</h3>
 						</div>
-						<p class="font-medium text-base text-primary text-justify">KukerTUI is a TUI Application to submit KKN logbook on Riau
+						<p class="font-medium text-base text-primary text-justify">KukerTUI is a TUI Application to submit KKN
+							logbook on Riau
 							University Kukerta Portal. KukerTUI was built because of negligence in submitting the logbook so that the
 							daily logbook is piling up.</p>
 					</div>
 				</a>
+
 				<a class="mb-6 p-4 md:w-1/2" href="https://satusembilanbelas.itch.io/gettinboxed">
 					<div>
-						<div class="rounded-md shadow-md overflow-hidden">
-							<img src="dist/img/portfolio/gettinboxed.png" alt="GettinBoxed" class="max-h-full max-w-full object-contain" />
+						<div class="rounded-md shadow-md overflow-hidden aspect-[16/9] flex items-end justify-center">
+							<img src="dist/img/portfolio/gettinboxed.png" alt="GettinBoxed"
+								class="max-h-full max-w-full object-contain" />
 						</div>
-						<div class="flex justify-between mb-1 mt-5">
+						<div class="flex justify-between mb-1 mt-2">
 							<h3 class="font-semibold text-xl text-dark">GettinBoxed</h3>
-							<h3 class="font-semibold text-sm text-dark">Built with Unity (C#)</h3>
+							<h3 class="font-semibold text-sm text-dark text-end">Built with Unity (C#)</h3>
 						</div>
 						<p class="font-medium text-base text-primary text-justify">a game about box.</p>
 					</div>
 				</a>
+
+				<a class="mb-6 p-4 md:w-1/2" href="https://github.com/pienapin/guest-log">
+					<div>
+						<div class="rounded-md shadow-md overflow-hidden aspect-[16/9] flex items-end justify-center">
+							<img src="dist/img/portfolio/eguestbook.png" alt="eguestbook" class="max-h-full max-w-full object-contain" />
+						</div>
+						<div class="flex justify-between items-center mb-2 mt-2">
+							<h3 class="font-semibold text-xl text-dark">Electronic Guestbook</h3>
+							<div class="flex flex-col text-end">
+								<h3 class="font-semibold text-sm text-dark">Built with Vue (Front-end)</h3>
+								<h3 class="font-semibold text-sm text-dark">Laravel (Back-end)</h3>
+							</div>
+						</div>
+						<p class="font-medium text-base text-primary text-justify mb-3">
+							Electronic GuestBook is a web-based guest book system with face recognition, built using Vue.js for the front-end. I implemented face detection (SSD) and recognition (ResNet34), developed scalable Laravel APIs to handle visitor data, and wrote detailed docs for easy integration.</p>
+					</div>
+				</a>
+
+				<!-- clickable card -->
+				<div class="mb-6 p-4 md:w-1/2 cursor-pointer" id="openModal">
+					<div>
+						<div class="rounded-md shadow-md overflow-hidden aspect-[16/9] flex items-end justify-center">
+							<img src="dist/img/portfolio/AlphaKids.png" alt="alphakids"
+								class="max-h-full max-w-full object-contain" />
+						</div>
+						<div class="flex justify-between items-center mb-2 mt-2">
+							<h3 class="font-semibold text-xl text-dark">AlphaKids</h3>
+							<div class="flex flex-col text-end">
+								<h3 class="font-semibold text-sm text-dark">Trained a CNN Model (TensorFlow)</h3>
+								<h3 class="font-semibold text-sm text-dark">Built a model inference API (Flask)</h3>
+							</div>
+						</div>
+						<p class="font-medium text-base text-primary text-justify mb-3">
+							AlphaKids is a collaborative project designed to help children learn letters and reading through an interactive mobile app. I trained a CNN model (95.67% acc) using TensorFlow to recognize handwritten and digital letters, built a Flask API for model inference, and managed the project’s GitHub repo for smooth teamwork.
+						</p>
+					</div>
+				</div>
+
+				<!-- modal -->
+				<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+					<div class="bg-white rounded-lg p-4 max-w-2xl w-full relative">
+						<button id="closeModal" class="absolute top-2 right-4 text-gray-600 hover:text-black">&times;</button>
+						<h2 class="text-xl font-semibold mb-4">AlphaKids Elevator Pitch</h2>
+						<video controls class="w-full rounded-md">
+							<source src="dist/img/portfolio/alphakids.mp4" type="video/mp4" />
+							Your browser doesn't support this video.
+						</video>
+						<div class="flex items-center mt-2 justify-center">
+							<a href="https://github.com/AlphKds/Letter_Recognition_ML" target="_blank"
+								class="rounded-full flex justify-center items-center text-center px-2 py-1 mx-3 bg-gray-300 hover:bg-slate-300">Machine
+								Learning Repo</a>
+							<a href="https://github.com/AlphKds" target="_blank"
+								class="rounded-full flex justify-center items-center text-center px-2 py-1 mx-3 bg-gray-300 hover:bg-slate-300">AlphaKids
+								GitHub</a>
+							<a href="https://github.com/AlphKds/Letter_Recognition_API" target="_blank"
+								class="rounded-full flex justify-center items-center text-center px-2 py-1 mx-3 bg-gray-300 hover:bg-slate-300">Machine
+								Learning API Repo</a>
+						</div>
+					</div>
+				</div>
+
+				
+				<a class="mb-6 p-4 md:w-1/2" href="https://dndsocks.pien.my.id">
+					<div>
+						<div class="rounded-md shadow-md overflow-hidden aspect-[16/9] flex items-end justify-center">
+							<img src="dist/img/portfolio/dndsocks.png" alt="dndsocks" class="max-h-full max-w-full object-contain" />
+						</div>
+						<div class="flex justify-between items-center mb-2 mt-2">
+							<h3 class="font-semibold text-xl text-dark">D&DSocks</h3>
+							<div class="flex flex-col text-end">
+								<h3 class="font-semibold text-sm text-dark">Built with Laravel (PHP)</h3>
+								<h3 class="font-semibold text-sm text-dark">Deployed (the demo) with Vercel and Supabase (PostgreSQL)
+								</h3>
+							</div>
+						</div>
+						<p class="font-medium text-base text-primary text-justify mb-3">
+							D&DSocks is a freelance project for a basic e-commerce platform focused on selling sock products. The
+							application includes two main interfaces: a customer-facing side and an admin dashboard.</p>
+						<p class="font-medium text-base text-primary text-justify">
+							This project was completed based on provided requirements, with no follow-up on deployment or final usage.
+						</p>
+					</div>
+				</a>
+
+				<a id="lattas" class="mb-6 p-4 md:w-1/2" href="#lattas">
+					<div>
+						<div class="rounded-md shadow-md overflow-hidden aspect-[16/9] flex items-end justify-center">
+							<img src="dist/img/portfolio/lattas-dinaskertans.png" alt="lattas-dinaskertans" class="max-h-full max-w-full object-contain" />
+						</div>
+						<div class="flex justify-between items-center mb-2 mt-2">
+							<h3 class="font-semibold text-xl text-dark">Lattas Dinaskertans</h3>
+							<div class="flex flex-col text-end">
+								<h3 class="font-semibold text-sm text-dark">Built with Laravel (PHP)</h3>
+								<!-- <h3 class="font-semibold text-sm text-dark">Deployed (the demo) with Vercel and Supabase (PostgreSQL)
+								</h3> -->
+							</div>
+						</div>
+						<p class="font-medium text-base text-primary text-justify mb-3">
+							Lattas Dinaskertans is a freelance project for managing worker training programs. It features a multi-level system that handles program creation, user registration, and real-time monitoring with recap reports for better oversight and data-driven decisions.</p>
+						<p class="font-medium text-base text-primary text-justify">
+							This project was completed based on provided requirements, with no follow-up on deployment or final usage.
+						</p>
+					</div>
+				</a>
+
+				<!-- <a class="mb-6 p-4 md:w-1/2" href="https://dndsocks.pien.my.id">
+					<div>
+						<div class="rounded-md shadow-md overflow-hidden">
+							<img src="dist/img/portfolio/dndsocks.png" alt="dndsocks" width="w-full" />
+						</div>
+						<div class="flex justify-between items-center mb-2 mt-2">
+							<h3 class="font-semibold text-xl text-dark">SIMAGANG</h3>
+							<div class="flex flex-col text-end">
+								<h3 class="font-semibold text-sm text-dark">Built with Laravel (PHP)</h3>
+								<h3 class="font-semibold text-sm text-dark">Deployed (the demo) with Vercel and Supabase (PostgreSQL)
+								</h3>
+							</div>
+						</div>
+						<p class="font-medium text-base text-primary text-justify mb-3">
+							D&DSocks is A freelance project for a basic e-commerce platform focused on selling sock products. The
+							application includes two main interfaces: a customer-facing side and an admin dashboard.</p>
+						<p class="font-medium text-base text-primary text-justify">
+							This project was completed based on provided requirements, with no follow-up on deployment or final usage.
+						</p>
+					</div>
+				</a> -->
+
+				<!-- <a class="mb-6 p-4 md:w-1/2" href="https://dndsocks.pien.my.id">
+					<div>
+						<div class="rounded-md shadow-md overflow-hidden">
+							<img src="dist/img/portfolio/dndsocks.png" alt="dndsocks" width="w-full" />
+						</div>
+						<div class="flex justify-between items-center mb-2 mt-2">
+							<h3 class="font-semibold text-xl text-dark">SIMAGANG</h3>
+							<div class="flex flex-col text-end">
+								<h3 class="font-semibold text-sm text-dark">Built with Laravel (PHP)</h3>
+								<h3 class="font-semibold text-sm text-dark">Deployed (the demo) with Vercel and Supabase (PostgreSQL)
+								</h3>
+							</div>
+						</div>
+						<p class="font-medium text-base text-primary text-justify mb-3">
+							D&DSocks is A freelance project for a basic e-commerce platform focused on selling sock products. The
+							application includes two main interfaces: a customer-facing side and an admin dashboard.</p>
+						<p class="font-medium text-base text-primary text-justify">
+							This project was completed based on provided requirements, with no follow-up on deployment or final usage.
+						</p>
+					</div>
+				</a> -->
+
 			</div>
+
 		</div>
 	</section>
 
